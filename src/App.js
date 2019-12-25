@@ -1,12 +1,23 @@
-import React from 'react';
-import './App.css';
+import React, {Component} from 'react';
+import {Route, Switch} from "react-router-dom";
+import Layout from "./components/Layout/Layout";
+import Page from "./containers/Page/Page";
+import EditPage from "./containers/EditPage/EditPage";
 
-function App() {
-  return (
-    <div className="App">
-      test
-    </div>
-  );
+
+
+class App extends Component {
+    render() {
+        return (
+            <Layout>
+                <Switch>
+                    <Route path="/" exact component={Page} />
+                    <Route path="/pages/admin" component={EditPage}/>
+                    <Route path="/pages/:name" component={Page}/>
+                </Switch>
+            </Layout>
+        );
+    }
 }
 
 export default App;
